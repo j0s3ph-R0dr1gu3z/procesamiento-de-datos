@@ -1,0 +1,27 @@
+#Gramatica dplyr
+#Joseph rodriguez
+#Agosto 2021
+install.packages(nycflights13)
+library(dplyr)
+library(nycflights13)
+library(ggplot2)
+
+
+sqrt(mean(flights$distance))
+
+flights$distance %>% mean() %>% sqrt()
+
+#leer una base de datos
+
+"Datos/eventos_de_platano.csv" %>% read.csv(stringsAsFactors = 1) %>%summary()
+
+datos_platano <- "Datos/eventos_de_platano.csv" %>% read.csv(stringsAsFactors = T)
+
+datos_platano %>% head()
+
+datos_platano %>% ggplot(aes(x=NO_ARBOLES, y=AREA_UM)) + geom_point() + 
+  theme_bw()
+
+ggsave("Resultados/plot_area_arboles.png")
+
+
